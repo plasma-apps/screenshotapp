@@ -24,8 +24,8 @@ find_package(Qt5 REQUIRED NO_MODULE COMPONENTS Core Quick Qml DBus)
 find_package(KF5 REQUIRED COMPONENTS
                 Package)
 
-kpackage_install_package(package org.kde.phone.screenshot genericqml)
+kpackage_install_package(package org.kde.mobile.screenshot genericqml)
 
-install(FILES package/metadata.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} RENAME org.kde.phone.screenshot.desktop)
+install(FILES package/metadata.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} RENAME org.kde.mobile.screenshot.desktop)
 
 add_subdirectory(plugin)

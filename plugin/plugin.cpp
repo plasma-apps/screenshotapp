@@ -25,6 +25,6 @@
 
 void Plugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("org.kde.phone.private.screenshot"));
+    Q_ASSERT(uri == QLatin1String("org.kde.mobile.private.screenshot"));
     qmlRegisterType<ScreenshotGrabber>(uri, 1, 0, "ScreenshotGrabber");
 }

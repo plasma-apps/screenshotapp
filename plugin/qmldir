@@ -1,2 +1,2 @@
-module org.kde.phone.private.screenshot
+module org.kde.mobile.private.screenshot
 plugin screenshotplugin

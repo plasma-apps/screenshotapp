@@ -3,7 +3,7 @@ set(plugin_SRCS
     screenshotgrabber.cpp
 )
 
-install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/phone/private/screenshot)
+install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/mobile/private/screenshot)
 
 add_library(screenshotplugin SHARED ${plugin_SRCS})
 
@@ -14,4 +14,4 @@ target_link_libraries(screenshotplugin
     Qt5::DBus
 )
 
-install(TARGETS screenshotplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/phone/private/screenshot)
+install(TARGETS screenshotplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/mobile/private/screenshot)
