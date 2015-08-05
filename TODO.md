@@ -1,0 +1,2 @@
+- [ ] Delay settings
+- [ ] Push notification about where image is stored
