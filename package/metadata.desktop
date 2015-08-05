@@ -5,6 +5,7 @@ Keywords=
 Name=Take Screenshot
 Type=Application
 Exec=kpackagelauncherqml -a org.kde.phone.screenshot
+Icon=ksnapshot
 X-KDE-ParentApp=
 X-KDE-PluginInfo-Author=Bhushan Shah
 X-KDE-PluginInfo-Category=Miscellaneous
