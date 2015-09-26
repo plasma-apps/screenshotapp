@@ -38,8 +38,7 @@ QString ScreenshotGrabber::grabScreenshot() const
     QDBusInterface kwinInterface(QStringLiteral("org.kde.KWin"),
                                  QStringLiteral("/Screenshot"),
                                  QStringLiteral("org.kde.kwin.Screenshot"));
-    
-    QDBusReply<QString> reply = kwinInterface.call("screenshotFullscreen");   
+    QDBusReply<QString> reply = kwinInterface.call("screenshotFullscreen");
 
     if(QFile::copy(reply.value(), path))
     {
