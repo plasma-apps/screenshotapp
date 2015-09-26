@@ -44,16 +44,20 @@ Rectangle {
         anchors.fill: parent
         anchors.margins: units.gridUnit
 
-        //Rectangle {
-        //    color: "grey"
+        Timer {
+            id: grabTimer
+            interval: 10000
+            running: true
+            repeat: false
+            onTriggered: img.source = grabber.grabScreenshot();
+        }
 
-	Image {
+        Image {
             id: img
-	    source: ""
+            source: ""
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignCenter
-            Component.onCompleted: source = grabber.grabScreenshot();
         }
 
         PlasmaComponents.Button {
@@ -61,7 +65,7 @@ Rectangle {
             Layout.preferredHeight: units.gridUnit * 4
             Layout.alignment: Qt.AlignCenter
             text: "Take new screenshot"
-            onClicked: img.source = grabber.grabScreenshot();
+            onClicked: grabTimer.start()
         }
 
     }
