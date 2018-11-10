@@ -24,6 +24,7 @@
 #include <QFile>
 #include <QDateTime>
 #include <QStandardPaths>
+#include <QScreen>
 
 #include <QDBusReply>
 #include <QDBusInterface>
@@ -35,10 +36,15 @@ QString ScreenshotGrabber::grabScreenshot() const
 
     QString path = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + "/snapshot_" + QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMddhhmmss") + ".png");
 
+    QScreen *screen = QGuiApplication::primaryScreen();
+    if (!screen) {
+        return QString();
+    }
+
     QDBusInterface kwinInterface(QStringLiteral("org.kde.KWin"),
                                  QStringLiteral("/Screenshot"),
                                  QStringLiteral("org.kde.kwin.Screenshot"));
-    QDBusReply<QString> reply = kwinInterface.call("screenshotFullscreen");
+    QDBusReply<QString> reply = kwinInterface.call("screenshotArea", 0, 0, screen->size.width(), screen->size.height());
 
     if(QFile::rename(reply.value(), path))
     {
